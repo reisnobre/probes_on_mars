@@ -25,7 +25,3 @@ Após criados basta rodar o comando:
 ## Testes
 
     yarn test
-
-## TO-DO
-
-- Testar os limites superiores antes de mover a sonda
