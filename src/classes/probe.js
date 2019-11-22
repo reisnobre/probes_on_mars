@@ -31,18 +31,22 @@ export default class Probe {
   move () {
     switch(this.looking_at) {
       case 'N':
-        this.y = this.y + 1
+        // lower bound
+        if (this.y + 1 <= this.plateau.board.length) this.y = this.y + 1
         break
 
       case 'S':
+        // lower bound
         if (this.y - 1 > 0) this.y = this.y - 1
         break
 
       case 'E':
-        this.x = this.x + 1
+        // lower bound
+        if (this.x + 1 <= this.plateau.board.length) this.x = this.x + 1
         break
 
       case 'W':
+        // lower bound
         if (this.x - 1 > 0) this.x = this.x - 1
         break
 

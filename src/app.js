@@ -12,7 +12,6 @@ try {
 }
 
 let data = fileData.split('\n')
-data.pop()
 let boardSize = data.splice(0, 1)[0].split('')
 let plateau = new Plateau(boardSize[0], boardSize[1])
 
@@ -37,12 +36,3 @@ probes.forEach(probe => {
     console.log('Probe log saved')
   })
 })
-
-//   // data.forEach(probe => {
-//   //   console.log(probe)
-//   // })
-// })
-//
-// console.log(plateau)
-// // console.log(input)
-

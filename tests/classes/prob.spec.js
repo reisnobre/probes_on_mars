@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 
 import Probe from '../../src/classes/probe'
-// import Plateau from '../../src/classes/plateau'
+import Plateau from '../../src/classes/plateau'
 
 describe('Probe test', () => {
   describe('Testing rotations', () => {
@@ -76,9 +76,47 @@ describe('Probe test', () => {
   })
 
   describe('Testing moves', () => {
+
+    let plateau = new Plateau(5, 5)
+
+    describe('Testing upper bounds', () => {
+      describe('Loking North Moving', () => {
+        let probe = new Probe(5, 5, 'N', 'M', plateau)
+        probe.run()
+        it('It should not move', () => {
+          const report = probe.report()
+          expect(report).to.equal('5 5 N')
+        })
+      })
+      describe('Loking East Moving', () => {
+        let probe = new Probe(5, 5, 'E', 'M', plateau)
+        probe.run()
+        it('It should not move', () => {
+          const report = probe.report()
+          expect(report).to.equal('5 5 E')
+        })
+      })
+      describe('Loking South Moving', () => {
+        let probe = new Probe(5, 5, 'S', 'M', plateau)
+        probe.run()
+        it('It should go on down', () => {
+          const report = probe.report()
+          expect(report).to.equal('5 4 S')
+        })
+      })
+      describe('Loking West Moving', () => {
+        let probe = new Probe(5, 5, 'W', 'M', plateau)
+        probe.run()
+        it('It should go one to the left', () => {
+          const report = probe.report()
+          expect(report).to.equal('4 5 W')
+        })
+      })
+    })
+
     describe('Testing lower bounds', () => {
       describe('Loking North Moving', () => {
-        let probe = new Probe(0, 0, 'N', 'M', [])
+        let probe = new Probe(0, 0, 'N', 'M', plateau)
         probe.run()
         it('It should go one up', () => {
           const report = probe.report()
@@ -86,7 +124,7 @@ describe('Probe test', () => {
         })
       })
       describe('Loking East Moving', () => {
-        let probe = new Probe(0, 0, 'E', 'M', [])
+        let probe = new Probe(0, 0, 'E', 'M', plateau)
         probe.run()
         it('It should go one right', () => {
           const report = probe.report()
@@ -94,7 +132,7 @@ describe('Probe test', () => {
         })
       })
       describe('Loking South Moving', () => {
-        let probe = new Probe(0, 0, 'S', 'M', [])
+        let probe = new Probe(0, 0, 'S', 'M', plateau)
         probe.run()
         it('It should not move', () => {
           const report = probe.report()
@@ -102,7 +140,7 @@ describe('Probe test', () => {
         })
       })
       describe('Loking West Moving', () => {
-        let probe = new Probe(0, 0, 'W', 'M', [])
+        let probe = new Probe(0, 0, 'W', 'M', plateau)
         probe.run()
         it('It should not move', () => {
           const report = probe.report()
