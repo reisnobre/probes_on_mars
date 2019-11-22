@@ -1,0 +1,28 @@
+{
+  "name": "probes_on_mars",
+  "version": "1.0.0",
+  "description": "A simple application that solves a problem.",
+  "main": "app.js",
+  "repository": "https://github.com/reisnobre/probe_on_mars.git",
+  "author": "Eduardo Reis Nobre <eduardo.reisnobre@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha 'tests/**/*.js' --require @babel/register",
+    "start": "nodemon --exec babel-node ./src/app.js",
+    "build": "babel src  --out-dir ./dist --source-maps",
+    "serve": "node ./dist/app.js",
+    "debug": "node --inspect-brk ./dist/index.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/node": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/register": "^7.7.0",
+    "babel-eslint": "^10.0.3",
+    "chai": "^4.2.0",
+    "eslint": "^6.6.0",
+    "mocha": "^6.2.2",
+    "nodemon": "^1.19.4"
+  }
+}
